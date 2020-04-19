@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from 'react-router-dom'
+
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -21,19 +23,19 @@ function Navbar() {
       <div className="collapse navbar-collapse" id="navbarColor01">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="!#">
+            <Link className="nav-link" to="/">
               Home <span className="sr-only">(current)</span>
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="!#">
+            <Link className="nav-link" to="/cadastro-produto">
               Cadastro
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="!#">
+            <Link className="nav-link" to="/consulta-produto">
               consulta
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

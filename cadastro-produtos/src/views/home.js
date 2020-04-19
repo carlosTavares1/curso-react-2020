@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from 'react-router-dom'
+
 function Home() {
   return (
     <div className="jumbotron">
@@ -9,9 +11,9 @@ function Home() {
       </p>
       <hr className="my-4" />
       <p className="lead">
-        <a className="btn btn-primary btn-lg" href="!#" role="button">
+        <Link className="btn btn-primary btn-lg" to="/cadastro-produto" role="button">
           Cadastrar
-        </a>
+        </Link>
       </p>
     </div>
   );

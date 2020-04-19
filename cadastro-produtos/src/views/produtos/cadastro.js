@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+
+import Card from "../../components/card";
 import ProdutoService from "../../app/produtoService";
+import { withRouter } from "react-router-dom";
 
 const estadoInicial = {
   nome: "",
@@ -9,6 +12,7 @@ const estadoInicial = {
   fornecedor: "",
   sucesso: false,
   errors: [],
+  atualizando: false,
 };
 
 class CadastroProduto extends Component {
@@ -26,6 +30,7 @@ class CadastroProduto extends Component {
   };
 
   onSubmit = (event) => {
+    event.preventDefault();
     const produto = {
       nome: this.state.nome,
       sku: this.state.sku,
@@ -48,11 +53,30 @@ class CadastroProduto extends Component {
     this.setState(estadoInicial);
   };
 
+  componentDidMount() {
+    const sku = this.props.match.params.sku;
+
+    if (sku) {
+      const resultado = this.service
+        .obterProduto()
+        .filter((produto) => produto.sku === sku);
+      if (resultado.length === 1) {
+        const produtoEncontrado = resultado[0];
+        this.setState({ ...produtoEncontrado, atualizando: true });
+      }
+    }
+  }
+
   render() {
     return (
-      <div className="card">
-        <div className="card-header">Cadastro de Produto</div>
-        <div className="card-body">
+      <Card
+        header={
+          this.state.atualizando
+            ? "Atualização de Produto"
+            : "Cadastro de Produto"
+        }
+      >
+        <form id="formProduto" onSubmit={this.onSubmit}>
           {this.state.sucesso && (
             <div class="alert alert-dismissible alert-success">
               <strong>Bem feito!</strong> Cadastro realizado com sucesso!
@@ -88,6 +112,7 @@ class CadastroProduto extends Component {
                   type="text"
                   name="sku"
                   onChange={this.onChange}
+                  disabled={this.state.atualizando && this.state.sku}
                   value={this.state.sku}
                   className="form-control"
                 />
@@ -135,8 +160,8 @@ class CadastroProduto extends Component {
           </div>
           <div className="row">
             <div className="col-md-1">
-              <button onClick={this.onSubmit} className="btn btn-success">
-                Salvar
+              <button type="submit" className="btn btn-success">
+                {this.state.atualizando ? "Atualizar" : "Salvar"}
               </button>
             </div>
             <div className="col-md-1">
@@ -145,10 +170,10 @@ class CadastroProduto extends Component {
               </button>
             </div>
           </div>
-        </div>
-      </div>
+        </form>
+      </Card>
     );
   }
 }
 
-export default CadastroProduto;
+export default withRouter(CadastroProduto);
