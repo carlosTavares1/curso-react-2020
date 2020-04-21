@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
-import { Button } from '@material-ui/core';
-
-import { SearchInput } from 'components';
+import {
+  Button,
+  TextField,
+  Grid,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel
+} from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -31,6 +37,14 @@ const useStyles = makeStyles(theme => ({
 const UsersToolbar = props => {
   const { className, ...rest } = props;
 
+  const [descricao, setDescricao] = useState('');
+  const [categoria, setCategoria] = useState('');
+
+  const submit = (event) => {
+    event.preventDefault();
+    console.log(`Valores: descrição - ${descricao}, categoria - ${categoria}`)
+  }
+
   const classes = useStyles();
 
   return (
@@ -40,20 +54,49 @@ const UsersToolbar = props => {
     >
       <div className={classes.row}>
         <span className={classes.spacer} />
-        <Button className={classes.importButton}>Import</Button>
-        <Button className={classes.exportButton}>Export</Button>
-        <Button
-          color="primary"
-          variant="contained"
-        >
-          Add user
-        </Button>
       </div>
       <div className={classes.row}>
-        <SearchInput
-          className={classes.searchInput}
-          placeholder="Search user"
-        />
+        <Grid container>
+          <Grid
+            item
+            md={4}
+          >
+            <TextField
+              className={classes.searchInput}
+              fullWidth
+              label="Descrição"
+              placeholder="Descrição da tarefa"
+              value={descricao}
+              onChange={e => setDescricao(e.target.value)}
+            />
+          </Grid>
+          <Grid
+            item
+            md={4}
+          >
+            <FormControl fullWidth>
+              <InputLabel>Categoria: </InputLabel>
+              <Select value={categoria} onChange={e => setCategoria(e.target.value)}>
+                <MenuItem value="">Selecione...</MenuItem>
+                <MenuItem value="TRABALHO">Trabalho</MenuItem>
+                <MenuItem value="ESTUDOS">Estudos</MenuItem>
+                <MenuItem value="OUTROS">Outros</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid
+            item
+            md={4}
+          >
+            <Button
+              color="secondary"
+              variant="contained"
+              onClick={submit}
+            >
+              Adicionar
+            </Button>
+          </Grid>
+        </Grid>
       </div>
     </div>
   );
