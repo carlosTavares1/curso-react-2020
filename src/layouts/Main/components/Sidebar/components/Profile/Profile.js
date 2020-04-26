@@ -27,9 +27,9 @@ const Profile = props => {
   const classes = useStyles();
 
   const user = {
-    name: 'Shen Zhi',
-    avatar: '/images/avatars/avatar_11.png',
-    bio: 'Brain Director'
+    name: 'Carlos',
+    avatar: 'https://scontent.fbnu2-1.fna.fbcdn.net/v/t1.0-9/s960x960/93853258_2886038171486630_34172164261281792_o.jpg?_nc_cat=101&_nc_sid=8024bb&_nc_eui2=AeGvvDvmn2DrtsZfWwb6mTZlUhNfC-d6QAlSE18L53pACbefkwnJfR69yHKwpzOMU1kxQ1tsGeJpCngIg2nqQRqm&_nc_ohc=VGrRIlVSn60AX9kI8kR&_nc_ht=scontent.fbnu2-1.fna&_nc_tp=7&oh=9d480479dab825c086ede82c44d8c72b&oe=5EC51972',
+    bio: 'Analista Desenvolvedor'
   };
 
   return (

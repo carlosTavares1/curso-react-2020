@@ -34,16 +34,22 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const UsersToolbar = props => {
+const TarefasToolbar = props => {
   const { className, ...rest } = props;
 
   const [descricao, setDescricao] = useState('');
   const [categoria, setCategoria] = useState('');
 
-  const submit = (event) => {
+  const submit = event => {
     event.preventDefault();
-    console.log(`Valores: descrição - ${descricao}, categoria - ${categoria}`)
-  }
+    const salvar = {
+      descricao: descricao,
+      categoria: categoria
+    };
+    props.salvar(salvar);
+    setDescricao('');
+    setCategoria('');
+  };
 
   const classes = useStyles();
 
@@ -65,9 +71,9 @@ const UsersToolbar = props => {
               className={classes.searchInput}
               fullWidth
               label="Descrição"
+              onChange={e => setDescricao(e.target.value)}
               placeholder="Descrição da tarefa"
               value={descricao}
-              onChange={e => setDescricao(e.target.value)}
             />
           </Grid>
           <Grid
@@ -76,7 +82,10 @@ const UsersToolbar = props => {
           >
             <FormControl fullWidth>
               <InputLabel>Categoria: </InputLabel>
-              <Select value={categoria} onChange={e => setCategoria(e.target.value)}>
+              <Select
+                onChange={e => setCategoria(e.target.value)}
+                value={categoria}
+              >
                 <MenuItem value="">Selecione...</MenuItem>
                 <MenuItem value="TRABALHO">Trabalho</MenuItem>
                 <MenuItem value="ESTUDOS">Estudos</MenuItem>
@@ -90,8 +99,8 @@ const UsersToolbar = props => {
           >
             <Button
               color="secondary"
-              variant="contained"
               onClick={submit}
+              variant="contained"
             >
               Adicionar
             </Button>
@@ -102,8 +111,8 @@ const UsersToolbar = props => {
   );
 };
 
-UsersToolbar.propTypes = {
+TarefasToolbar.propTypes = {
   className: PropTypes.string
 };
 
-export default UsersToolbar;
+export default TarefasToolbar;
