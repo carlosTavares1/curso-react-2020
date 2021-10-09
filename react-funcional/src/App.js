@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-import ReducerHook from "./reducer";
+import ReducerHook from "./reducer/reducerHook";
 
 function App() {
   return <ReducerHook />;
