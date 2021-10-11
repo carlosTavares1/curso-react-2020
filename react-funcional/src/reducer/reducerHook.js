@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import * as S from "./styles/calc.styled";
+import { useStoreCalc } from "./somaReducer";
 
-import useStore from "./somaReducer";
-
-function ReducerHook() {
+const ReducerHook = () => {
   const [primeiroNumero, setPrimeiroNumero] = useState();
   const [segundoNumero, setSegundoNumero] = useState();
-
-  const [store, dispatch] = useStore();
+  const [store, dispatch] = useStoreCalc();
+  const resultadoLabel = "Resultado:";
+  const numeroLabel = "Número:";
+  const somarLabel = "Somar";
+  const subtrairLabel = "Subtrair";
+  const titleApp = "Calculadora Simples";
 
   const somar = () => {
     const primeiroNumeroInt = parseInt(primeiroNumero);
@@ -31,32 +35,41 @@ function ReducerHook() {
   };
 
   return (
-    <div>
-      Número 1:
+    <S.Container>
+      <S.TitleApp>{titleApp}</S.TitleApp>
+      {numeroLabel}
       <br />
-      <input
+      <S.InputValue
         type="text"
         value={primeiroNumero}
         onChange={(e) => setPrimeiroNumero(e.target.value)}
       />
       <br />
-      Número 2:
+      {numeroLabel}
       <br />
-      <input
+      <S.InputValue
         type="text"
         value={segundoNumero}
         onChange={(e) => setSegundoNumero(e.target.value)}
       />
       <br />
-      <button onClick={somar}>Somar</button>
-      <button onClick={subtrair}>Subtrair</button>
+      <S.ButtonContainer>
+        <S.ActionButton type="primary" onClick={somar}>
+          {somarLabel}
+        </S.ActionButton>
+        <S.ActionButton type="primary" danger onClick={subtrair}>
+          {subtrairLabel}
+        </S.ActionButton>
+      </S.ButtonContainer>
       <br />
-      Resultado:
+      <S.ResultContainer>
+        {resultadoLabel}
+        <br />
+        <S.InputValue type="text" value={store.resultado} readOnly />
+      </S.ResultContainer>
       <br />
-      <input type="text" value={store.resultado} readOnly />
-      <br />
-    </div>
+    </S.Container>
   );
-}
+};
 
 export default ReducerHook;

@@ -16,5 +16,4 @@ const somaReducer = (state = STATE_INICIAL, action) => {
   }
 };
 
-const useStore = () => useReducer(somaReducer, STATE_INICIAL);
-export default useStore;
+export const useStoreCalc = () => useReducer(somaReducer, STATE_INICIAL);
