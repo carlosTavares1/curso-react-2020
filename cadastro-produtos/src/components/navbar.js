@@ -34,7 +34,7 @@ function Navbar() {
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/consulta-produto">
-              consulta
+              Consulta
             </Link>
           </li>
         </ul>

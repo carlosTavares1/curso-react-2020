@@ -10,6 +10,9 @@ const estadoInicial = {
   descricao: "",
   preco: 0,
   fornecedor: "",
+  custo: 0,
+  unidade: 0,
+  fabricante: "",
   sucesso: false,
   errors: [],
   atualizando: false,
@@ -36,7 +39,10 @@ class CadastroProduto extends Component {
       sku: this.state.sku,
       descricao: this.state.descricao,
       preco: this.state.preco,
+      custo: this.state.custo,
+      unidade: this.state.unidade,
       fornecedor: this.state.fornecedor,
+      fabricante: this.state.fabricante,
     };
 
     try {
@@ -133,11 +139,50 @@ class CadastroProduto extends Component {
             </div>
           </div>
           <div className="row">
+            <div className="col-md-12">
+              <div className="form-group">
+                <label>Fabricante: *</label>
+                <input
+                  name="fabricante"
+                  onChange={this.onChange}
+                  value={this.state.fabricante}
+                  className="form-control"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-6">
+              <div className="form-group">
+                <label>Unidade: </label>
+                <input
+                  type="number"
+                  name="unidade"
+                  onChange={this.onChange}
+                  value={this.state.unidade}
+                  className="form-control"
+                />
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="form-group">
+                <label>Custo: </label>
+                <input
+                  type="text"
+                  name="custo"
+                  onChange={this.onChange}
+                  value={this.state.custo}
+                  className="form-control"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="row">
             <div className="col-md-6">
               <div className="form-group">
                 <label>Preço: *</label>
                 <input
-                  type="text"
+                  type="number"
                   name="preco"
                   onChange={this.onChange}
                   value={this.state.preco}
@@ -166,7 +211,7 @@ class CadastroProduto extends Component {
             </div>
             <div className="col-md-1">
               <button onClick={this.limparCampos} className="btn btn-primary">
-                Salvar
+                Limpar
               </button>
             </div>
           </div>
