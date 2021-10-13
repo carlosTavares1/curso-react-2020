@@ -7,7 +7,10 @@ export default (props) => (
         <th>Nome</th>
         <th>SKU</th>
         <th>Preço</th>
+        <th>Unidade</th>
+        <th>Custo</th>
         <th>Fornecedor</th>
+        <th>Fabricante</th>
         <th></th>
       </tr>
     </thead>
@@ -18,7 +21,10 @@ export default (props) => (
             <th>{produto.nome}</th>
             <th>{produto.sku}</th>
             <th>{produto.preco}</th>
+            <th>{produto.unidade}</th>
+            <th>{produto.custo}</th>
             <th>{produto.fornecedor}</th>
+            <th>{produto.fabricante}</th>
             <th>
               <button
                 onClick={() => props.editarAction(produto.sku)}
@@ -29,6 +35,7 @@ export default (props) => (
               <button
                 onClick={() => props.deletarAction(produto.sku)}
                 className="btn btn-danger"
+                style={{ marginLeft: "15px" }}
               >
                 Remover
               </button>

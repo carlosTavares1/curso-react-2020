@@ -4,7 +4,6 @@ import ProdutosTable from "./produtosTable";
 import Card from "../../components/card";
 import ProdutoService from "../../app/produtoService";
 import { withRouter } from "react-router-dom";
-import produtosTable from "./produtosTable";
 
 class ConsultaProdutos extends Component {
   state = {
