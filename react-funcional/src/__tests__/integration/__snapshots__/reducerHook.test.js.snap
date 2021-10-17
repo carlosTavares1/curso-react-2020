@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render correctly Reducer Hook should be generate snapshot 1`] = `
+<div>
+  <div
+    class="sc-dlfnuX bwzoMI"
+  >
+    <h1
+      class="sc-hKgJUU hfvrQH"
+    >
+      Calculadora Simples
+    </h1>
+    Número:
+    <br />
+    <input
+      class="ant-input sc-gsTEea ktcgBc"
+      data-testid="firstInputCalc"
+      type="text"
+      value=""
+    />
+    <br />
+    Número:
+    <br />
+    <input
+      class="ant-input sc-gsTEea ktcgBc"
+      data-testid="secondInputCalc"
+      type="text"
+      value=""
+    />
+    <br />
+    <div
+      class="sc-jSgvzq lnKEnR"
+    >
+      <button
+        class="ant-btn ant-btn-primary sc-bdfBQB kcuiSJ"
+        type="button"
+      >
+        <span>
+          Somar
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary ant-btn-dangerous sc-bdfBQB kcuiSJ"
+        type="button"
+      >
+        <span>
+          Subtrair
+        </span>
+      </button>
+    </div>
+    <br />
+    <div
+      class="sc-eCstlR bjwjzI"
+    >
+      Resultado:
+      <br />
+      <input
+        class="ant-input sc-gsTEea ktcgBc"
+        readonly=""
+        type="text"
+        value=""
+      />
+    </div>
+    <br />
+  </div>
+</div>
+`;

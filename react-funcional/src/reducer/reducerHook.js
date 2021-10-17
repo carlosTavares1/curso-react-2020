@@ -43,6 +43,7 @@ const ReducerHook = () => {
         type="text"
         value={primeiroNumero}
         onChange={(e) => setPrimeiroNumero(e.target.value)}
+        data-testid="firstInputCalc" 
       />
       <br />
       {numeroLabel}
@@ -51,6 +52,7 @@ const ReducerHook = () => {
         type="text"
         value={segundoNumero}
         onChange={(e) => setSegundoNumero(e.target.value)}
+        data-testid="secondInputCalc" 
       />
       <br />
       <S.ButtonContainer>
