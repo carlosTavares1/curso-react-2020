@@ -105,6 +105,7 @@ class CadastroProduto extends Component {
                 <input
                   type="text"
                   name="nome"
+                  data-testid="inputNome"
                   onChange={this.onChange}
                   value={this.state.nome}
                   className="form-control"
@@ -117,6 +118,7 @@ class CadastroProduto extends Component {
                 <input
                   type="text"
                   name="sku"
+                  data-testid="inputSku"
                   onChange={this.onChange}
                   disabled={this.state.atualizando && this.state.sku}
                   value={this.state.sku}
@@ -131,6 +133,7 @@ class CadastroProduto extends Component {
                 <label>Descrição:</label>
                 <textarea
                   name="descricao"
+                  data-testid="inputDescricao"
                   onChange={this.onChange}
                   value={this.state.descricao}
                   className="form-control"
@@ -144,6 +147,7 @@ class CadastroProduto extends Component {
                 <label>Fabricante: *</label>
                 <input
                   name="fabricante"
+                  data-testid="inputFabricante"
                   onChange={this.onChange}
                   value={this.state.fabricante}
                   className="form-control"
@@ -158,6 +162,7 @@ class CadastroProduto extends Component {
                 <input
                   type="number"
                   name="unidade"
+                  data-testid="inputUnidade"
                   onChange={this.onChange}
                   value={this.state.unidade}
                   className="form-control"
@@ -170,6 +175,7 @@ class CadastroProduto extends Component {
                 <input
                   type="text"
                   name="custo"
+                  data-testid="inputCusto"
                   onChange={this.onChange}
                   value={this.state.custo}
                   className="form-control"
@@ -184,6 +190,7 @@ class CadastroProduto extends Component {
                 <input
                   type="number"
                   name="preco"
+                  data-testid="inputPreco"
                   onChange={this.onChange}
                   value={this.state.preco}
                   className="form-control"
@@ -196,6 +203,7 @@ class CadastroProduto extends Component {
                 <input
                   type="text"
                   name="fornecedor"
+                  data-testid="inputFornecedor"
                   onChange={this.onChange}
                   value={this.state.fornecedor}
                   className="form-control"
