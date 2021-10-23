@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render correctly <Home /> should be generate snapshot 1`] = `
+<div>
+  <div
+    class="jumbotron"
+  >
+    <h1
+      class="display-3"
+    >
+      Bem-vindo!
+    </h1>
+    <p
+      class="lead"
+    >
+      Sistema de cadastro de produtos
+    </p>
+    <hr
+      class="my-4"
+    />
+    <p
+      class="lead"
+    >
+      <a
+        class="btn btn-primary btn-lg"
+        href="/cadastro-produto"
+        role="button"
+      >
+        Cadastrar
+      </a>
+    </p>
+  </div>
+</div>
+`;
